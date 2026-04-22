@@ -1,0 +1,27 @@
+<svg viewBox="0 0 24.9863 22.8042" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.986328" height="22.804199" fill="none" customFrame="#000000">
+	<defs>
+		<clipPath id="clipPath_0">
+			<rect width="14.575342" height="13.302491" x="5.205566" y="4.750977" fill="rgb(255,255,255)" />
+		</clipPath>
+		<clipPath id="clipPath_1">
+			<rect width="14.575342" height="13.302491" x="5.205566" y="4.750977" fill="rgb(255,255,255)" />
+		</clipPath>
+		<clipPath id="clipPath_2">
+			<rect width="14.575342" height="13.302491" x="5.205566" y="4.750977" fill="rgb(255,255,255)" />
+		</clipPath>
+	</defs>
+	<g id="Facebook">
+		<ellipse id="Ellipse 9" rx="12.493151" ry="11.402135" cx="12.4931507" cy="11.4021349" fill="rgb(255,180,0)" />
+		<g id="Icons-facebook" customFrame="url(#clipPath_0)">
+			<rect id="Icons-facebook" width="14.575342" height="13.302491" x="5.205566" y="4.750977" fill="rgb(255,255,255)" fill-opacity="0" />
+			<g id="Icons-facebook" customFrame="url(#clipPath_1)">
+				<rect id="Icons-facebook" width="14.575342" height="13.302491" x="5.205566" y="4.750977" fill="rgb(255,255,255)" fill-opacity="0" />
+				<g id="Icons-facebook" clip-path="url(#clipPath_2)" customFrame="url(#clipPath_2)">
+					<rect id="Icons-facebook" width="14.575342" height="13.302491" x="5.205566" y="4.750977" fill="rgb(255,255,255)" fill-opacity="0" />
+					<path id="Vector" d="M5.20557 4.75098L19.7809 4.75098L19.7809 18.0535L5.20557 18.0535L5.20557 4.75098Z" fill-rule="nonzero" />
+					<path id="Vector" d="M13.7077 12.2335L15.226 12.2335L15.8333 10.0164L13.7077 10.0164L13.7077 8.90786C13.7077 8.33696 13.7077 7.79932 14.9223 7.79932L15.8333 7.79932L15.8333 5.93697C15.6353 5.91314 14.8877 5.85938 14.0982 5.85938C12.4493 5.85938 11.2785 6.7778 11.2785 8.46445L11.2785 10.0164L9.45654 10.0164L9.45654 12.2335L11.2785 12.2335L11.2785 16.9448L13.7077 16.9448L13.7077 12.2335Z" fill="rgb(43,43,43)" fill-rule="nonzero" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

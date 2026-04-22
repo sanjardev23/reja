@@ -1,1 +1,310 @@
-<h1>Hello world, you are in authors page</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Portfolio</title>
+</head>
+
+
+<body>
+    <div class="frame">
+        <div class="main_frame">
+            <div class="left_frame">
+                <div class="left_1">
+                    <div class="left_1-1">
+                        <img 
+                            src="images/profile.png"
+                            width="156px"
+                            height="142px"
+                            alt="">
+                    </div>
+                    <div class="left_1-2"><%=user.name%></div>
+                    <div class="left_1-3"><%=user.profession%></div>
+                    <div class="left-icons">
+                        <a href="" class="link_href">
+                            <div class="icon">
+                                <img src="icon/Facebook.svg" class="icon-1">
+                            </div>
+                        </a>
+                        <a href="" class="link_href">
+                            <div class="icon">
+                                <img src="icon/Instagram.svg" class="icon-1">
+                            </div>
+                        </a>
+                        <a href="" class="link_href">
+                            <div class="icon">
+                                <img src="icon/Twitter.svg" class="icon-1">
+                            </div>
+                        </a>
+                        <a href="" class="link_href">
+                            <div class="icon">
+                                <img src="icon/Linkeding.svg" class="icon-1">
+                            </div>
+                        </a>
+                        <a href="" class="link_href">
+                            <div class="icon">
+                                <img src="icon/Youtube.svg" class="icon-1">
+                            </div>
+                        </a>
+                        <a href="" class="link_href">
+                            <div class="icon">
+                                <img src="icon/Dribbble.svg" class="icon-1">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="marginer"></div>
+
+                <div class="left_2">
+                    <div class="about_row">
+                        <div class="about_label">Age:</div>
+                        <div class="about_value"><%= user.age %></div>
+                    </div>
+                    
+                    <div class="about_row">
+                        <div class="about_label">Residence:</div>
+                        <div class="about_value"><%= user.residence %></div>
+                    </div>
+
+                    <div class="about_row">
+                        <div class="about_label">Freelance:</div>
+                        <div class="about_value"><p>Available</p></div>
+                    </div>
+
+                     <div class="about_row">
+                        <div class="about_label">Address:</div>
+                        <div class="about_value"><%= user.adress %></div>
+                    </div>
+                </div>
+                <div class="marginer"></div>
+
+                <div class="left_3">
+                    <div class="languages_title">Languages</div>
+
+                    <div class="language_row">
+                        <div class="language_info">
+                            <span class="language_name"><%= user.languages[0]%></span>
+                            <span class="language_percent">100%</span>
+                        </div>
+                        <div class="language_bar">
+                            <div class="language_fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="language_row">
+                        <div class="language_info">
+                            <span class="language_name"><%= user.languages[1]%></span>
+                            <span class="language_percent">70%</span>
+                        </div>
+                        <div class="language_bar">
+                            <div class="language_fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="language_row">
+                        <div class="language_info">
+                            <span class="language_name"><%= user.languages[2]%></span>
+                            <span class="language_percent">90%</span>
+                        </div>
+                        <div class="language_bar">
+                            <div class="language_fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="language_row">
+                        <div class="language_info">
+                            <span class="language_name"><%= user.languages[3]%></span>
+                            <span class="language_percent">100%</span>
+                        </div>
+                        <div class="language_bar">
+                            <div class="language_fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="marginer"></div>
+
+                <div class="left_4">
+                    <div class="skill_title">Skills</div>
+
+                    <div class="skill_row">
+                        <div class="skill_info">
+                            <span class="skill_name"><%= user.skills[0]%></span>
+                            <span class="skill_percent">90%</span>
+                        </div>
+                        <div class="skill_bar">
+                            <div class="skill_fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill_row">
+                        <div class="skill_info">
+                            <span class="skill_name"><%= user.skills[1]%></span>
+                            <span class="skill_percent">85%</span>
+                        </div>
+                        <div class="skill_bar">
+                            <div class="skill_fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill_row">
+                        <div class="skill_info">
+                            <span class="skill_name"><%= user.skills[2]%></span>
+                            <span class="skill_percent">70%</span>
+                        </div>
+                        <div class="skill_bar">
+                            <div class="skill_fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill_row">
+                        <div class="skill_info">
+                            <span class="skill_name"><%= user.skills[3]%></span>
+                            <span class="skill_percent">80%</span>
+                        </div>
+                        <div class="skill_bar">
+                            <div class="skill_fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill_row">
+                        <div class="skill_info">
+                            <span class="skill_name"><%= user.skills[4]%></span>
+                            <span class="skill_percent">90%</span>
+                        </div>
+                        <div class="skill_bar">
+                            <div class="skill_fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="marginer"></div>
+
+                <div class="left_5">
+                    <div class="extra_title">Extra Skills</div>
+
+                    <div class="extra_item">
+                        <span class="extra_icon">
+                            <img src="icon/Icons.svg" class="extra_icon-1">
+                        </span>
+                        <span class="extra_text"><%= user.extra_skills[0]%></span>
+                    </div>
+
+                    <div class="extra_item">
+                        <span class="extra_icon">
+                            <img src="icon/Icons.svg" class="extra_icon-1">
+                        </span>
+                        <span class="extra_text"><%= user.extra_skills[1]%></span>
+                    </div>
+
+                    <div class="extra_item">
+                        <span class="extra_icon">
+                            <img src="icon/Icons.svg" class="extra_icon-1">
+                        </span>
+                        <span class="extra_text"><%= user.extra_skills[2]%></span>
+                    </div>
+
+                    <div class="extra_item">
+                        <span class="extra_icon">
+                            <img src="icon/Icons.svg" class="extra_icon-1">
+                        </span>
+                        <span class="extra_text"><%= user.extra_skills[3]%></span>
+                    </div>
+                </div>
+
+                <div class="marginer"></div>
+
+                <div class="left_6">
+                    <div class="download_btn">
+                        <span class="btn_text">DOWNLOAD CV</span>
+                        <span class="btn_icon">
+                            <i class="fa fa-download"></i>
+                            <!-- <img src="icon/download.svg" class="d-btn"> -->
+                        </span>
+                    </div>
+                
+                </div>
+
+            </div>
+
+            
+            <div class="midd_frame">
+                <div class="midd_top">
+                    <div class="midd_top_text">
+                        <h1 class="midd_title"><%= user.work_place %></h1>
+                        <p class="midd_desc"><%= user.service_desc %></p>
+                        <a href="#" class="hire_btn">HIRE ME &nbsp;&rarr;</a>
+                    </div>
+
+                    <div class="midd_top_image">
+                        
+                        <span class="deco deco-circle top-left"></span>
+                        <span class="deco deco-diamond top-right"></span>
+                        <span class="deco deco-circle-outline mid-left"></span>
+                        <span class="deco deco-triangle bottom-right"></span>
+                        <span class="deco deco-circle-outline bottom-left"></span>
+                        <span class="deco deco-diamond-outline mid-right"></span>
+                        
+                        <img src="images/Yourimage.svg" class="hero_img" alt="Hero">
+                    </div>
+
+                </div>
+
+                <div class="midd_bottom">
+                    <div class="services_section">
+                        <div class="services_header">
+                            <h2 class="services_title">My Services</h2>
+                            <p class="services_desc"><%=user.service_desc%></p>
+                        </div>
+                        <div class="services_grid">
+                            <div class="service_card">
+                                <div class="service_icon"><img src="box_images/web-icon.svg" alt="Web Development"></div>
+                                <div class="service_title">Web Development</div>
+                                <div class="service_subtitle">Blog, E-Commerce</div>
+                            </div>
+                            <div class="service_card">
+                                <div class="service_icon"><img src="box_images/ux-icon.svg" alt="UI/UX Design"></div>
+                                <div class="service_title">UI/UX Design</div>
+                                <div class="service_subtitle">Mobile App, Website Design</div>
+                            </div>
+                            <div class="service_card">
+                                <div class="service_icon"><img src="box_images/sound-icon.svg" alt="Sound Design"></div>
+                                <div class="service_title">Sound Design</div>
+                                <div class="service_subtitle">Voice Over, Beat Making</div>
+                            </div>
+                            <div class="service_card">
+                                <div class="service_icon"><img src="box_images/game-icon.svg" alt="Game Design"></div>
+                                <div class="service_title">Game Design</div>
+                                <div class="service_subtitle">Character Design, Props & Objects</div>
+                            </div>
+                            <div class="service_card">
+                                <div class="service_icon"><img src="box_images/photograph-icon.svg" alt="Photography"></div>
+                                <div class="service_title">Photography</div>
+                                <div class="service_subtitle">Portrait, Product Photography</div>
+                            </div>
+                            <div class="service_card">
+                                <div class="service_icon"><p>Advertising</p></div>
+                                <div class="service_title">Advertising</div>
+                                <div class="service_subtitle">Lorem Ipsum Dolor Sit Amet</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="rigth_frame"></div>
+    </div>
+</body>
+
+
+</html>
+
+ 

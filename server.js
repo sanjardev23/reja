@@ -42,7 +42,7 @@ app.get("/author", function(req, res) {
 app.get("/", function(req, res) {
     res.render("harid");
 });
-
+ 
 
 
 // app.get("/gift", function(req, res) {
@@ -55,4 +55,8 @@ const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function () {
     console.log(`The server is running successfully on port: ${PORT}`);
-}); 
+});
+
+
+
+
