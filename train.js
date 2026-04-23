@@ -43,7 +43,7 @@ function giveAdvice(a, callback) {
     else if(a > 40 && a <= 50) callback(null, list[3]);
     else if(a > 50 && a <= 60) callback(null, list[4]);
     else {
-        setInterval(function () {
+        setTimeout(function () {
             callback(null, list[5])        // ==> async ni ichida core module functionlar ishlamaydi
         }, 1000);
     }
@@ -51,15 +51,15 @@ function giveAdvice(a, callback) {
 
 
 
-console.log('passed here 0')
-giveAdvice(70, (err, data) => {
-    if(err) console.log('ERROR:', err);
-    else { 
-        // console.log(`Advice for your age: ${data}`);
-        console.log(data)
-    }
-});
-console.log('passed here 1')
+// console.log('passed here 0')
+// giveAdvice(70, (err, data) => {
+//     if(err) console.log('ERROR:', err);
+//     else { 
+//         // console.log(`Advice for your age: ${data}`);
+//         console.log(data)
+//     }
+// });
+// console.log('passed here 1')
 
 
 
@@ -125,3 +125,30 @@ console.log('passed here 1')
 //     console.log(answer);
 // }
 // run();
+
+
+
+
+
+
+
+
+// A-TASK
+
+function countLetter(letter, word) {
+    let count = 0;
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === letter) count++;
+    }
+    return count;
+}
+
+console.log(countLetter('e', 'engineer')); 
+console.log(countLetter('p', 'pineapple'));
+console.log(countLetter('n', 'banana'));
+console.log(countLetter('u', 'cucumber'));
+
+
+// count 0dan boshlayd, i ham 0dan, argumentda berilgan sozimizni uzunligigacha har iteration boganda i ga +1 qoshib boradi
+// if - sozni ichidagi i === type ham value si ham argumentda berilgan harfga teng bolsa count ni +1 ga oshiradi
+// iteration tugagach countni qaytaradi, yani loop nech marta aylansa va letterga teng bogan nechta i bolsa => countda qaytadi
