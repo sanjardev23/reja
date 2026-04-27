@@ -170,3 +170,21 @@ console.log(countLetter('u', 'cucumber'));
 // count 0dan boshlayd, i ham 0dan, argumentda berilgan sozimizni uzunligigacha har iteration boganda i ga +1 qoshib boradi
 // if - sozni ichidagi i === type ham value si ham argumentda berilgan harfga teng bolsa count ni +1 ga oshiradi
 // iteration tugagach countni qaytaradi, yani loop nech marta aylansa va letterga teng bogan nechta i bolsa => countda qaytadi
+
+
+
+
+
+// B-TASK
+
+function countDigits(str) {
+    let count = 0; 
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] >= '0' && str[i] <= '9') {
+            count++;
+        }
+    }
+
+    return count;
+}
