@@ -26,6 +26,13 @@
 document.getElementById("create-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
+
+    if(createField.value.trim() === '') {
+        createField.focus();
+        return;
+    }
+
+
     axios
     .post("/create-item", { reja: createField.value })
     .then((response) => {
