@@ -46,3 +46,37 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
         console.log("Please try again!")
     });
 });
+
+
+
+document.addEventListener("click", function (e) {
+    console.log(e.target)
+    //delete operation
+    if(e.target.classList.contains("delete-me")) {
+        if (confirm ("Do you want to remove this?")) {
+            axios
+            .post("/delete-item", { id: e.target.getAttribute("data-id") })
+            .then((response) => {
+                console.log(response.data);
+                e.target.parentElement.parentElement.remove();
+            })
+            .catch((err) => {
+                console.log("Please try again!")
+            });
+        }
+    } 
+
+
+
+
+
+
+
+    // edit operation
+    if(e.target.classList.contains("edit-me")) {
+    
+    }
+})
+
+
+

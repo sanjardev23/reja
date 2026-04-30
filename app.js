@@ -7,6 +7,7 @@ const app = express();
 
 // MongoDB connect  
 const db = require("./server").db();
+const mongodb = require("mongodb")
 
 
 // 1: Kirish code
@@ -34,6 +35,24 @@ app.post("/create-item", (req, res) => {
     
     // res.redirect("/"); // 🔥 page reload → input clears automatically
 });
+
+
+
+
+app.post("/delete-item", (req, res) => {
+    const id = req.body.id;
+    db.collection("plans").deleteOne(
+        { _id: new mongodb.ObjectId(id)},
+        function (err, data) {
+            res.json({ state: "success" });
+        } 
+    );
+    
+    // res.end("done");
+})
+
+
+
 
 app.get("/", function(req, res) {
     // res.render("reja");
