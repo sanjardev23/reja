@@ -26,7 +26,7 @@
 
 
 
-console.log('Jack Ma`s advice for young people')
+// console.log('Jack Ma`s advice for young people')
 const list = [
     'Learn as much as you can', // 0-20
     'Find a good boss to learn from rather than a good company', // 20-30 
@@ -119,15 +119,15 @@ async function giveAdvice(a) {
 
 
 // call via then/catch
-console.log('passed here 0')
+// console.log('passed here 0')
 giveAdvice(31)
     .then((data) => {
-        console.log(`Advice for your age: ${data}`);
+        // console.log(`Advice for your age: ${data}`);
     })
     .catch((err) => {
-        console.log('ERROR:', err);
+        // console.log('ERROR:', err);
     })
-console.log('passed here 1')
+// console.log('passed here 1')
 
 // sync function pass bolgandan kn node js async bn ishlaydi
 
@@ -161,10 +161,10 @@ function countLetter(letter, word) {
     return count;
 }
 
-console.log(countLetter('e', 'engineer')); 
-console.log(countLetter('p', 'pineapple'));
-console.log(countLetter('n', 'banana'));
-console.log(countLetter('u', 'cucumber'));
+// console.log(countLetter('e', 'engineer')); 
+// console.log(countLetter('p', 'pineapple'));
+// console.log(countLetter('n', 'banana'));
+// console.log(countLetter('u', 'cucumber'));
 
 
 // count 0dan boshlayd, i ham 0dan, argumentda berilgan sozimizni uzunligigacha har iteration boganda i ga +1 qoshib boradi
@@ -208,6 +208,63 @@ function checkContent(str1, str2) {
   return true;
 }
 
-console.log(checkContent("mitgroup", "gmtiprou")); 
-console.log(checkContent("kiyik", "kiyik"));       
-console.log(checkContent("ayiq", "asal"));       
+// console.log(checkContent("mitgroup", "gmtiprou")); 
+// console.log(checkContent("kiyik", "kiyik"));       
+// console.log(checkContent("ayiq", "asal"));       
+
+
+
+
+// D-TASK
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
+
+  vaqt() {
+    let now = new Date();
+    return now.getHours() + ":" + now.getMinutes();
+  }
+
+  qoldiq() {
+    console.log(
+      `Hozir ${this.vaqt()} da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola bor`
+    );
+  }
+
+  sotish(product, count) {
+    if (product === "non") {
+      this.non -= count;
+    } else if (product === "lagmon") {
+      this.lagmon -= count;
+    } else if (product === "cola") {
+      this.cola -= count;
+    }
+
+    console.log(`${count}ta ${product} sotildi`);
+  }
+
+  qabul(product, count) {
+    if (product === "non") {
+      this.non += count;
+    } else if (product === "lagmon") {
+      this.lagmon += count;
+    } else if (product === "cola") {
+      this.cola += count;
+    }
+
+    console.log(`${count}ta ${product} qo‘shildi`);
+  }
+}
+
+
+const shop = new Shop(4, 5, 2);
+
+shop.qoldiq();
+
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+
+shop.qoldiq();

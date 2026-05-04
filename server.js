@@ -4,7 +4,7 @@ const mongodb = require("mongodb")
 let db;
 const connectionString = "mongodb+srv://mksanjar04_db:Sanjar0404@cluster0.c28osjk.mongodb.net/"
 
-
+// TCP
 mongodb.connect(
     connectionString, 
     {
