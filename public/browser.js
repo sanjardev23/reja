@@ -77,7 +77,7 @@ document.addEventListener("click", function (e) {
     // edit oper
     if (e.target.classList.contains("edit-me")) {
         let userInput = prompt(
-            "O'zgartirish kiriting",
+            "Enter your changes:",
             e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
         );
 
@@ -93,9 +93,11 @@ document.addEventListener("click", function (e) {
                 e.target.parentElement.parentElement.querySelector(
                 ".item-text"
                 ).innerHTML = userInput;
+
+                alert("Item updated successfully");
             })
             .catch((err) => {
-                console.log("Iltimos qaytadan harakat qiling!");
+                console.log("Something went wrong. Please try again!");
             });
         }
     }

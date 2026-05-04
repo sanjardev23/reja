@@ -72,7 +72,7 @@ app.post("/edit-item", (req, res) => {
 app.post("/delete-all", (req, res) => {
   if (req.body.delete_all) {
     db.collection("plans").deleteMany(function () {
-      res.json({ state: "All plans deleted" });
+      res.json({ state: "All items have been deleted" });
     });
   }
 });
@@ -86,7 +86,7 @@ app.get("/", function(req, res) {
     db.collection("plans").find().toArray((err, data) => {
         if(err) {
             console.log(err);
-            res.end("Something went wrong");
+            res.end("Something went wrong. Please try again!");
         } else {
             // console.log(data);
             res.render("reja", { items: data })
