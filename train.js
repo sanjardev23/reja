@@ -1,5 +1,11 @@
 // NodeJS Event Loop va Callback functionlar
 
+// const { get } = require("./app");
+
+// const { get } = require("./app");
+
+// const { get } = require("./app");
+
 // Plan: 
 // - NodeJS - Single Thread hamda Multi Process Dasturlash
 // - Asynchronous dasturlash: Callback functionlar
@@ -262,9 +268,21 @@ class Shop {
 
 const shop = new Shop(4, 5, 2);
 
-shop.qoldiq();
+// shop.qoldiq();
+// shop.sotish("non", 3);
+// shop.qabul("cola", 4);
 
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
+// shop.qoldiq();
 
-shop.qoldiq();
+
+
+
+
+// E-TASK
+function getReverse(word) {
+  return word.split("").reverse().join("")         
+}
+
+console.log(getReverse("HELLO"));                  
+console.log(getReverse("MIT"));
+console.log(getReverse("SIMON"));
