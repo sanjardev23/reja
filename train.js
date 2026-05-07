@@ -283,6 +283,27 @@ function getReverse(word) {
   return word.split("").reverse().join("")         
 }
 
-console.log(getReverse("HELLO"));                  
-console.log(getReverse("MIT"));
-console.log(getReverse("SIMON"));
+// console.log(getReverse("HELLO"));                  
+// console.log(getReverse("MIT"));
+// console.log(getReverse("SIMON"));
+
+
+
+
+
+// F-TASK
+function findDoublers(word) {
+  for (let i = 0; i < word.length; i++) {
+    for (let j = i + 1; j < word.length; j++) {
+      if (word[i] === word[j]) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+console.log(findDoublers("hello"));
+console.log(findDoublers("mit"));   
+console.log(findDoublers("kiyik")); 
