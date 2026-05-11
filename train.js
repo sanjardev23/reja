@@ -304,6 +304,26 @@ function findDoublers(word) {
   return false;
 }
 
-console.log(findDoublers("hello"));
-console.log(findDoublers("mit"));   
-console.log(findDoublers("kiyik")); 
+// console.log(findDoublers("hello"));
+// console.log(findDoublers("mit"));   
+// console.log(findDoublers("kiyik")); 
+
+
+
+
+// G-TASK
+function getHighestIndex(arr) {
+  let biggest = arr[0];
+  let index = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > biggest) {
+      biggest = arr[i];
+      index = i;
+    }
+  }
+
+  return index;
+}
+
+console.log(getHighestIndex([5, 21, 12, 50, 101, 206]));
