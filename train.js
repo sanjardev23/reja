@@ -326,8 +326,27 @@ function getHighestIndex(arr) {
   return index;
 }
 
-console.log(getHighestIndex([5, 21, 12, 50, 101, 206]));
+// console.log(getHighestIndex([5, 21, 12, 50, 101, 206]));
 
 
 // DEPLOY
 // http://93.188.166.198:3010/  
+
+
+
+
+
+
+// H-TASK
+function getPositive(num) {
+  return num.filter(n => n > 0); 
+}
+
+const input = [1, -2, 3, -4, 5];
+const result = getPositive(input);
+console.log(result); 
+
+const outputList = result;
+const outputresult = outputList.join('');
+console.log(`Type: ${typeof outputresult}, result: ${outputresult}`)
+// console.log(typeof outputresult, outputresult)
