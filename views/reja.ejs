@@ -1,76 +1,568 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REJA</title>
+  <!-- Basic page settings -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous"
-    >
+  <!-- Browser tab title -->
+  <title>Reja & Maqsadlar</title>
+
+  <!-- Font Awesome icons CDN -->
+  <!-- This allows us to use icons like fa-trash, fa-pen, fa-python -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <style>
+    /* CSS controls design */
+    /* body, buttons, list items, hover comments, stats etc. */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      color: #1a1a2e;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .page-header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .page-header p {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-top: 5px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 1.25rem;
+    }
+
+    .stat-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px 16px;
+      text-align: center;
+      border: 1px solid #ebebeb;
+    }
+
+    .stat-card .num {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    .stat-card .lbl {
+      font-size: 0.72rem;
+      color: #aaa;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    .stat-card.total .num { color: #4361ee; }
+    .stat-card.done-card .num { color: #2ec4b6; }
+    .stat-card.left-card .num { color: #ff9f1c; }
+
+    .progress-wrap {
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 1.25rem;
+      border: 1px solid #ebebeb;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #bbb;
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 6px;
+      background: #f0f2f5;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #4361ee, #2ec4b6);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+
+    .input-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 1.25rem;
+      border: 1px solid #ebebeb;
+    }
+
+    .input-card form {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .input-card input[type="text"] {
+      flex: 1;
+      border: 1.5px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.93rem;
+      outline: none;
+      color: #1a1a2e;
+      background: #fafafa;
+    }
+
+    .input-card input[type="text"]:focus {
+      border-color: #4361ee;
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+      background: #fff;
+    }
+
+    .btn-add {
+      background: #4361ee;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    #item-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 1.25rem;
+    }
+
+    .list-item {
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-radius: 12px;
+      padding: 11px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.2s;
+    }
+
+    .list-item:hover {
+      border-color: #c5d0f5;
+      background: #f7f8ff;
+      transform: translateX(4px);
+    }
+
+    .list-item.done {
+      opacity: 0.5;
+    }
+
+    .list-item.done .item-text {
+      text-decoration: line-through;
+      color: #aaa;
+    }
+
+    .item-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: #eef0ff;
+      color: #4361ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .checkbox.checked {
+      background: #2ec4b6;
+      border-color: #2ec4b6;
+    }
+
+    .checkbox.checked::after {
+      content: '';
+      width: 5px;
+      height: 9px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg) translateY(-1px);
+    }
+
+    .item-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item-text {
+      font-size: 0.93rem;
+      color: #1a1a2e;
+      line-height: 1.4;
+    }
+
+    /* Comment is hidden normally */
+    .item-comment {
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 4px;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* Comment appears when user hovers each plan */
+    .list-item:hover .item-comment {
+      opacity: 1;
+      max-height: 50px;
+    }
+
+    .item-actions {
+      display: flex;
+      gap: 5px;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: 0.18s;
+    }
+
+    .list-item:hover .item-actions {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .btn-edit,
+    .btn-delete {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      border: 1px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    .btn-edit {
+      background: #f5f5f5;
+      border-color: #e0e0e0;
+      color: #666;
+    }
+
+    .btn-delete {
+      background: #fff5f5;
+      border-color: #ffd5d5;
+      color: #e04040;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 0;
+      color: #ccc;
+    }
+
+    .empty-state i {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-clear {
+      background: transparent;
+      border: 1px solid #ffd5d5;
+      color: #e04040;
+      border-radius: 10px;
+      padding: 9px 16px;
+      font-size: 0.83rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+  </style>
 </head>
-<body style="background-color: rgb(156, 152, 152);">
-    <div class="container">
-        <h1 class="display-4 text-center py-1">REJA VA MAQSADLAR</h1>
 
-         
-        <div class="jumbotron p-3 shadow-sm">
-            <form id="create-form" action="/create-item" method="POST">
-                <div class="d-flex align-items-center">     
-                    <input
-                      id="create-field"
-                      name="reja"
-                      type="text"
-                      class="form-control mr-3"
-                      placeholder="Enter item..."
-                      autocomplete="off"
-                      autofocus
-                      style="flex: 1;"
-                    />  
-                    <button class="btn btn-primary" style="border-radius: 20px;"> 
-                    Yangi Reja Qushish
-                    </button>
+<body>
+  <div class="container">
 
-                </div>
-            </form>
-        </div>
+    <!-- Page title section -->
+    <div class="page-header">
+      <h1>
+        <i class="fa-solid fa-list-check" style="color:#4361ee;margin-right:10px;"></i>
+        Reja & Maqsadlar
+      </h1>
 
-        
-        
-        
-        <ul id="item-list" class="list-group pb-5">
-            <% items.forEach(function(item) { %>
-
-                <li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
-                <span class="item-text"><%= item.reja %></span>
-
-                <div>
-                    <button 
-                    data-id="<%= item._id %>" 
-                    class="edit-me btn btn-secondary btn-sm mr-1">
-                    Ozgartirish
-                    </button>
-
-                    <button 
-                    data-id="<%= item._id %>" 
-                    class="delete-me btn btn-danger btn-sm">
-                    Ochirish
-                    </button>
-                </div>
-                </li>
-
-            <% }) %>
-         </ul>
-
-        <button id="clean-all" class="btn btn-danger" style="border-radius: 20px">
-          Hamma Rejalarni O'chirish
-        </button>
+      <!-- This date is filled by JavaScript below -->
+      <p id="today-date"></p>
     </div>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/browser.js"></script>
+    <!-- Statistics cards -->
+    <!-- items.length comes from app.js: res.render("reja", { items: data }) -->
+    <div class="stats">
+      <div class="stat-card total">
+        <div class="num" id="stat-total"><%= items.length %></div>
+        <div class="lbl">Jami</div>
+      </div>
+
+      <div class="stat-card done-card">
+        <div class="num" id="stat-done">0</div>
+        <div class="lbl">Bajarildi</div>
+      </div>
+
+      <div class="stat-card left-card">
+        <div class="num" id="stat-left"><%= items.length %></div>
+        <div class="lbl">Qoldi</div>
+      </div>
+    </div>
+
+    <!-- Progress bar section -->
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="prog-label">0 ta bajarildi</span>
+        <span id="prog-pct">0%</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <!-- Form section -->
+    <!-- User writes plan + comment here -->
+    <!-- browser.js catches this form submit -->
+    <div class="input-card">
+      <form id="create-form" action="/create-item" method="POST">
+
+        <!-- Plan title input -->
+        <!-- browser.js gets this by id="create-field" -->
+        <input
+          id="create-field"
+          name="reja"
+          type="text"
+          placeholder="Yangi reja yozing..."
+          autocomplete="off"
+          autofocus
+        />
+
+        <!-- Comment input -->
+        <!-- browser.js gets this by id="comment-field" -->
+        <input
+          id="comment-field"
+          name="comment"
+          type="text"
+          placeholder="Comment yozing..."
+          autocomplete="off"
+        />
+
+        <!-- Submit button -->
+        <button type="submit" class="btn-add">
+          <i class="fa-solid fa-plus"></i> Qo'shish
+        </button>
+      </form>
+    </div>
+
+    <!-- List section -->
+    <ul id="item-list">
+
+      <!-- If MongoDB has no items, show empty message -->
+      <% if (items.length === 0) { %>
+        <div class="empty-state">
+          <i class="fa-regular fa-clipboard"></i>
+          <p>Hozircha reja yo'q. Birinchi rejani qo'shing!</p>
+        </div>
+      <% } %>
+
+      <!-- Loop through MongoDB data -->
+      <!-- items comes from app.js -->
+      <% items.forEach(function(item) { %>
+
+        <!-- One list item -->
+        <!-- data-id keeps MongoDB _id inside HTML -->
+        <!-- browser.js uses this id for delete/edit -->
+        <li class="list-item" data-id="<%= item._id %>">
+
+          <!-- Icon section -->
+          <!-- getIcon() comes from app.js -->
+          <div class="item-icon">
+            <i class="<%= getIcon(item.reja) %>"></i>
+          </div>
+
+          <!-- Checkbox section -->
+          <!-- toggleDone(this) is below in script -->
+          <div class="checkbox" onclick="toggleDone(this)"></div>
+
+          <!-- Plan title + comment -->
+          <div class="item-content">
+
+            <!-- item.reja comes from MongoDB -->
+            <span class="item-text"><%= item.reja %></span>
+
+            <!-- item.comment comes from MongoDB -->
+            <!-- If no comment, show "Comment yo'q" -->
+            <p class="item-comment"><%= item.comment || "Comment yo'q" %></p>
+          </div>
+
+          <!-- Edit + delete buttons -->
+          <div class="item-actions">
+
+            <!-- Edit button -->
+            <!-- data-id stores MongoDB id -->
+            <!-- browser.js listens for .edit-me -->
+            <button data-id="<%= item._id %>" class="edit-me btn-edit" title="Tahrirlash">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+
+            <!-- Delete button -->
+            <!-- browser.js listens for .delete-me -->
+            <button data-id="<%= item._id %>" class="delete-me btn-delete" title="O'chirish">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+
+    <!-- Bottom row -->
+    <div class="footer-row">
+
+      <!-- Delete all button -->
+      <!-- browser.js gets this by id="clean-all" -->
+      <button id="clean-all" class="btn-clear">
+        <i class="fa-solid fa-trash-can"></i> Barchasini o'chirish
+      </button>
+
+      <!-- This number is updated by updateStats() -->
+      <span class="footer-note" id="footer-note">0 / <%= items.length %> bajarildi</span>
+    </div>
+  </div>
+
+  <script>
+    // Create current date
+    const d = new Date();
+
+    // Put today's date inside <p id="today-date">
+    document.getElementById("today-date").textContent =
+        `${d.getFullYear()} ${String(d.getMonth() + 1).padStart(2, "0")} ${String(d.getDate()).padStart(2, "0")}, ${d.toLocaleString("en-US", {
+            weekday: "short"
+    })}`;
+
+    // This function updates:
+    // total plans
+    // done plans
+    // left plans
+    // progress percentage
+    function updateStats() {
+      // Get all plans from HTML
+      const all = document.querySelectorAll("#item-list .list-item");
+
+      // Get only completed plans
+      const done = document.querySelectorAll("#item-list .list-item.done").length;
+
+      // Count total plans
+      const total = all.length;
+
+      // Calculate percentage
+      const pct = total ? Math.round((done / total) * 100) : 0;
+
+      // Update numbers in HTML
+      document.getElementById("stat-total").textContent = total;
+      document.getElementById("stat-done").textContent = done;
+      document.getElementById("stat-left").textContent = total - done;
+
+      // Update progress bar width
+      document.getElementById("prog-fill").style.width = pct + "%";
+
+      // Update percentage text
+      document.getElementById("prog-pct").textContent = pct + "%";
+
+      // Update progress label
+      document.getElementById("prog-label").textContent = done + " ta bajarildi";
+
+      // Update footer text
+      document.getElementById("footer-note").textContent = done + " / " + total + " bajarildi";
+    }
+
+    // This function runs when checkbox is clicked
+    function toggleDone(chk) {
+      // Find parent li and add/remove "done" class
+      chk.closest(".list-item").classList.toggle("done");
+
+      // Add/remove checked class on checkbox
+      chk.classList.toggle("checked");
+
+      // Update numbers after checkbox change
+      updateStats();
+    }
+
+    // Run once when page opens
+    updateStats();
+  </script>
+
+  <!-- Axios library -->
+  <!-- browser.js uses axios.post() to talk to backend -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!-- Our frontend JavaScript file -->
+  <!-- Express serves this from public/browser.js -->
+  <script src="/browser.js"></script>
 </body>
 </html>
