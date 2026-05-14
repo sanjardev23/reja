@@ -344,9 +344,39 @@ function getPositive(num) {
 
 const input = [1, -2, 3, -4, 5];
 const result = getPositive(input);
-console.log(result); 
+// console.log(result); 
 
 const outputList = result;
 const outputresult = outputList.join('');
-console.log(`Type: ${typeof outputresult}, result: ${outputresult}`)
+// console.log(`Type: ${typeof outputresult}, result: ${outputresult}`)
 // console.log(typeof outputresult, outputresult)
+
+
+
+
+
+
+// I-TASK
+function majorityElement(arr) {
+
+    let n = arr.length;  
+
+    for (let i = 0; i < n; i++) {
+        let count = 0;
+
+        for (let j = 0; j < n; j++) {
+            if (arr[i] === arr[j]) {
+                count++;
+            }
+        }
+
+        if (count > n / 2) {
+            return arr[i];
+        }
+    }
+
+    return -1;
+}
+
+let arr = [5, 1, 2, 5, 3, 5, 5];
+console.log(majorityElement(arr));
