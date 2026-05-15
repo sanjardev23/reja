@@ -158,6 +158,7 @@ giveAdvice(31)
 
 
 // A-TASK
+// Count specific letter in a word function
 
 function countLetter(letter, word) {
     let count = 0;
@@ -180,8 +181,8 @@ function countLetter(letter, word) {
 
 
 
-
 // B-TASK
+// Count digits in string function
 
 function countDigits(str) {
     let count = 0; 
@@ -196,7 +197,13 @@ function countDigits(str) {
 }
 
 
+
+
+
+
 // C-TASK
+// Check two strings content function
+
 function checkContent(str1, str2) {
   if (str1.length !== str2.length) return false;
 
@@ -221,7 +228,11 @@ function checkContent(str1, str2) {
 
 
 
+
+
 // D-TASK
+// Shop class function
+
 class Shop {
   constructor(non, lagmon, cola) {
     this.non = non;
@@ -265,7 +276,6 @@ class Shop {
   }
 }
 
-
 const shop = new Shop(4, 5, 2);
 
 // shop.qoldiq();
@@ -279,6 +289,8 @@ const shop = new Shop(4, 5, 2);
 
 
 // E-TASK
+// Reverse word function
+
 function getReverse(word) {
   return word.split("").reverse().join("")         
 }
@@ -292,6 +304,8 @@ function getReverse(word) {
 
 
 // F-TASK
+// Find repeated letters function
+
 function findDoublers(word) {
   for (let i = 0; i < word.length; i++) {
     for (let j = i + 1; j < word.length; j++) {
@@ -312,6 +326,8 @@ function findDoublers(word) {
 
 
 // G-TASK
+// Find highest number index function
+
 function getHighestIndex(arr) {
   let biggest = arr[0];
   let index = 0;
@@ -329,8 +345,10 @@ function getHighestIndex(arr) {
 // console.log(getHighestIndex([5, 21, 12, 50, 101, 206]));
 
 
+
+
 // DEPLOY
-// http://93.188.166.198:3010/  
+// http://93.188.166.198:3010/
 
 
 
@@ -338,6 +356,8 @@ function getHighestIndex(arr) {
 
 
 // H-TASK
+// Get positive numbers function
+
 function getPositive(num) {
   return num.filter(n => n > 0); 
 }
@@ -357,6 +377,8 @@ const outputresult = outputList.join('');
 
 
 // I-TASK
+// Find majority element function
+
 function majorityElement(arr) {
 
     let n = arr.length;  
@@ -379,4 +401,19 @@ function majorityElement(arr) {
 }
 
 let arr = [5, 1, 2, 5, 3, 5, 5];
-console.log(majorityElement(arr));
+// console.log(majorityElement(arr));
+
+
+
+
+
+// J-TASK
+// Find longest word function
+
+function longest(str) {
+  str = str.split(' ');
+
+  return str.sort((a, b) => b.length - a.length)[0];
+}
+
+console.log(longest("I come from Uzbekistan"));
