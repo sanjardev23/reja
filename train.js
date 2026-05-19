@@ -416,4 +416,27 @@ function longest(str) {
   return str.sort((a, b) => b.length - a.length)[0];
 }
 
-console.log(longest("I come from Uzbekistan"));
+// console.log(longest("I come from Uzbekistan"));
+
+
+
+
+
+// K-TASK
+function countVowels(str) {
+  let count = 0;
+  const vowels = "aeiouAEIOU";
+
+  for (let char of str) {
+    if (vowels.includes(char)) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countVowels("Uzbekistan")); 
+console.log(countVowels("SIMON")); 
+
+
+
