@@ -435,8 +435,19 @@ function countVowels(str) {
   return count;
 }
 
-console.log(countVowels("Uzbekistan")); 
-console.log(countVowels("SIMON")); 
+// console.log(countVowels("Uzbekistan")); 
+// console.log(countVowels("SIMON")); 
 
+
+
+
+// L-TASK
+const sentence = "we like coding";
+
+const reversedWords = sentence.split(" ")
+  .map(word => word.split("").reverse().join(""))
+  .join(" ");
+
+console.log(reversedWords); 
 
 
