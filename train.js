@@ -448,6 +448,28 @@ const reversedWords = sentence.split(" ")
   .map(word => word.split("").reverse().join(""))
   .join(" ");
 
-console.log(reversedWords); 
+// console.log(reversedWords); 
+
+
+
+
+
+// O-TASK
+function calculateSumOfNumbers(arr) {
+    let sum = 0;
+
+    for (let item of arr) {
+        if (typeof item === "number") {
+            sum += item;
+        }
+    }
+
+    return sum;
+}
+
+console.log(
+    calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])
+); 
+
 
 
